@@ -8,8 +8,11 @@ const connectDatabase = require('./config/database.js')
 const app = express();
 
 const PORT = process.env.PORT
-const NODE_ENV = process.env.NODE_ENV || 'psroduction'
+const NODE_ENV = process.env.NODE_ENV || 'production'
 
+app.get('/health', (req, res) => {
+  res.sendStatus(200);
+});
 
 app.listen(PORT, async () => {
   // Configure express
